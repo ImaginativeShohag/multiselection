@@ -2,6 +2,7 @@ package com.marcosholgado.multiselection
 
 import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -48,6 +49,9 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
             object : ItemDetailsLookup.ItemDetails<Long>() {
                 override fun getPosition(): Int = adapterPosition
                 override fun getSelectionKey(): Long? = itemId
+                override fun inSelectionHotspot(e: MotionEvent): Boolean {
+                    return true
+                }
             }
     }
 }
